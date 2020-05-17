@@ -1,0 +1,15 @@
+<li>
+  <div class="form-check" [ngClass]="{'completed': todo.status }" id="markCheck{{index}}">
+    <label class="form-check-label" style="display: inline; margin-left: 0.75rem;
+    ">
+      <input class="checkbox" type="checkbox" [checked]="todo.status" (change)="onCheck(index, todo)"><i
+        class="input-helper"></i>
+    </label>
+    <span title="Click to edit" style="cursor: pointer;" (click)="editTaskTitle(index, todo)">{{ todo.task }}</span>
+
+  </div>
+  <div class="ml-auto">
+    <button class="btn btn-danger btn-sm" (click)="deleteTask(index, todo)"><i class="fa fa-trash"></i></button>
+  </div>
+</li>
+

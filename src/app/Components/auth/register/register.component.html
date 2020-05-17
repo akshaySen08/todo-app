@@ -1,0 +1,37 @@
+<div class="wrapper">
+  <div id="formContent">
+    <!-- Icon -->
+    <div class="fadeIn first">
+      <img src="https://www.pngfind.com/pngs/m/93-938050_png-file-transparent-white-user-icon-png-download.png"
+        id="icon" alt="User Icon" />
+    </div>
+    <!-- Tabs Titles -->
+    <h3>Register</h3>
+    <div *ngIf="isLoading">
+      <app-loading-spinner></app-loading-spinner>
+    </div>
+    <div class="alert alert-danger" *ngIf="error">
+      {{ error }}
+    </div>
+    <!-- signup Form -->
+
+    <form [formGroup]="registerForm" (ngSubmit)='register()' *ngIf="!isLoading">
+      <input type="text" id="signup" class="form-control" formControlName="email" placeholder="Email">
+      <p class="text text-danger"
+        *ngIf="(registerForm.get('email').hasError('required') || registerForm.get('email').hasError('email')) && registerForm.get('email').touched">
+        Please enter a valid email</p>
+      <input type="text" id="password" class="form-control" formControlName="password" placeholder="Password">
+      <p class="text text-danger"
+        *ngIf="(registerForm.get('password').hasError('required') || registerForm.get('password').hasError('min')) && registerForm.get('password').touched">
+        Please enter atleast 5 characters</p>
+      <input type="submit" class="btn btn-sm" value="Register">
+    </form>
+
+    <!-- Remind Passowrd -->
+    <div id="formFooter">
+      <a class="underlineHover" routerLink="../login">Login</a><br>
+      <a class="underlineHover" href="#">Forgot Password?</a>
+    </div>
+
+  </div>
+</div>

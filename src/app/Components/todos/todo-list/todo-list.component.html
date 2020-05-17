@@ -1,0 +1,5 @@
+<div class="list-wrapper">
+  <ul class="d-flex flex-column-reverse todo-list">
+    <app-todo-item *ngFor="let todo of todos; let i = index" [todo]="todo" [index]="i"></app-todo-item>
+  </ul>
+</div>
